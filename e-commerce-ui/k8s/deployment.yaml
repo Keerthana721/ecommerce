@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: ecommerce-ui
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: ecommerce-ui
+
+  template:
+    metadata:
+      labels:
+        app: ecommerce-ui
+
+    spec:
+      containers:
+      - name: ecommerce-ui
+        image: keethi/e-commerce-ui:latest
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80
